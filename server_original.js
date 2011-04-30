@@ -9,8 +9,8 @@ var bayeux = new faye.NodeAdapter({
 var app = express.createServer();
 app.configure(function () {
    app.use(express.logger());
-   app.use(express.bodyDecoder());
-   app.use(express.staticProvider(__dirname + '/public'));
+   app.use(express.bodyParser());
+   app.use(express.static(__dirname + '/public'));
 });
 
 app.post('/lance', function(req, res) {

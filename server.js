@@ -9,8 +9,8 @@
   app = express.createServer();
   app.configure(function() {
     app.use(express.logger());
-    app.use(express.bodyDecoder());
-    return app.use(express.staticProvider("" + (__dirname) + "/public"));
+    app.use(express.bodyParser());
+    return app.use(express.static("" + (__dirname) + "/public"));
   });
   app.post('/lance', function(req, res) {
     if (req.param('token') !== 'abc') {
